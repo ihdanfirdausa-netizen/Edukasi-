@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenalan dengan TB bareng Paru</title>
+<meta name="description" content="Media edukasi tuberkulosis (TBC): penyebab, gejala, penularan, diagnosis, pengobatan, pencegahan, mitos dan fakta, plus kuis bersama maskot Paru.">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF6F7;--ink:#17324D;--card:#fff;--lung:#F28C8C;--mint:#7FD1B9;--sun:#FFD166;--line:#cfe2e6;--muted:#4a6275}
+@media(prefers-color-scheme:dark){:root:not([data-t=l]){--bg:#0f1f2e;--ink:#e8f1f5;--card:#18304380;--line:#2b4a60;--muted:#a9c0cc}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2rem,7vw,3.4rem);font-weight:800}
+h2{font-size:clamp(1.5rem,5vw,2.1rem);font-weight:800}
+h3{font-size:1.15rem;font-weight:600}
+a{color:inherit}
+nav{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:2px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 12px;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:99px;font-weight:700;font-size:.9rem}
+nav a:hover,nav a:focus-visible{background:var(--sun);color:#17324D;outline:none}
+main{max-width:860px;margin:auto;padding:0 18px 60px}
+section{padding:44px 0 4px}
+.hero{display:grid;gap:18px;align-items:center;padding-top:30px}
+@media(min-width:700px){.hero{grid-template-columns:1.2fr 1fr}}
+.hero svg{width:100%;max-width:300px;margin:auto;animation:b 3s ease-in-out infinite}
+@keyframes b{50%{transform:translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){.hero svg{animation:none}html{scroll-behavior:auto}}
+.bubble{position:relative;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:14px 18px;margin:14px 0}
+.bubble.say{border-color:var(--lung)}
+.mini{display:flex;gap:12px;align-items:flex-start}
+.mini svg{flex:0 0 56px;width:56px}
+.mini .bubble{margin:0;flex:1;border-radius:6px 22px 22px 22px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;gap:12px}
+@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
+.grid .card{margin:0}
+.tag{display:inline-block;background:var(--mint);color:#17324D;border-radius:8px;padding:0 10px;font-weight:700;font-size:.85rem}
+.warn{background:var(--sun);color:#17324D;border-radius:18px;padding:14px 18px;margin:14px 0}
+ul{padding-left:1.2em;margin:.4em 0}li{margin:.25em 0}
+details{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;font-family:'Baloo 2',sans-serif;font-size:1.05rem}
+summary:focus-visible,button:focus-visible{outline:3px solid var(--lung);outline-offset:2px}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:48px;margin:14px 0}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--lung);color:#fff;font:800 1.1rem 'Baloo 2';display:grid;place-items:center}
+.bar{display:flex;border-radius:14px;overflow:hidden;font-weight:700;font-size:.9rem;text-align:center;margin:12px 0}
+.bar div{padding:12px 6px;color:#17324D}
+.myth{width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 16px;margin:8px 0;cursor:pointer}
+.myth b{color:var(--lung)}
+.myth .f{display:none;margin-top:8px;padding-top:8px;border-top:2px dashed var(--line)}
+.myth[aria-expanded=true] .f{display:block}
+.myth[aria-expanded=true]{border-color:var(--mint)}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0;cursor:pointer}
+.opt.ok{background:var(--mint);color:#17324D;border-color:var(--mint)}
+.opt.no{background:var(--lung);color:#17324D;border-color:var(--lung)}
+.btn{font:700 1rem 'Baloo 2';background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:8px 22px;cursor:pointer;margin-top:8px}
+#why{font-size:.95rem;color:var(--muted);min-height:1.5em}
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:20px 18px 40px;max-width:700px;margin:auto}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="paru" viewBox="0 0 200 200">
+<path d="M92 20h16v52H92z" fill="#e8736f"/>
+<path d="M100 66C80 66 52 74 42 112c-9 30-4 62 14 68 16 5 36-8 40-30V80c0-8 2-14 4-14z" fill="#F28C8C"/>
+<path d="M100 66c20 0 48 8 58 46 9 30 4 62-14 68-16 5-36-8-40-30V80c0-8-2-14-4-14z" fill="#F28C8C"/>
+<path d="M62 100q-8 22-6 46M138 100q8 22 6 46" stroke="#e8736f" stroke-width="5" fill="none" stroke-linecap="round"/>
+<ellipse cx="80" cy="112" rx="10" ry="12" fill="#fff"/><ellipse cx="120" cy="112" rx="10" ry="12" fill="#fff"/>
+<circle cx="82" cy="114" r="6" fill="#17324D"/><circle cx="118" cy="114" r="6" fill="#17324D"/>
+<circle cx="84" cy="111" r="2" fill="#fff"/><circle cx="120" cy="111" r="2" fill="#fff"/>
+<path d="M88 140q12 12 24 0" stroke="#17324D" stroke-width="4" fill="none" stroke-linecap="round"/>
+<circle cx="68" cy="134" r="7" fill="#f6a9a9"/><circle cx="132" cy="134" r="7" fill="#f6a9a9"/>
+<rect x="88" y="44" width="24" height="8" rx="4" fill="#7FD1B9"/>
+<path d="M162 40l22-8-6 22z" fill="#FFD166"/>
+</symbol>
+</svg>
+
+<nav aria-label="Navigasi">
+<a href="#kenal">Apa itu TB</a><a href="#tular">Penularan</a><a href="#gejala">Gejala</a><a href="#diagnosis">Diagnosis</a><a href="#obat">Pengobatan</a><a href="#cegah">Pencegahan</a><a href="#mitos">Mitos</a><a href="#kuis">Kuis</a>
+</nav>
+
+<main>
+<div class="hero">
+<div>
+<h1>Kenalan sama TB, yuk!</h1>
+<p>Tuberkulosis (TBC) bisa dicegah dan <strong>bisa disembuhkan</strong>. Ikuti petualangan bersama Paru, maskot yang akan menemani kamu memahami TB dari awal sampai tuntas.</p>
+<div class="bubble say">“Halo, aku <strong>Paru</strong>! Tugasku bernapas buat kamu setiap hari. Biar aku tetap sehat, kenali TB bareng-bareng ya!”</div>
+</div>
+<svg role="img" aria-label="Paru, maskot paru-paru yang tersenyum"><use href="#paru"/></svg>
+</div>
+
+<section id="kenal">
+<h2>Apa itu TB?</h2>
+<p>TB adalah penyakit infeksi yang disebabkan bakteri <em>Mycobacterium tuberculosis</em>. Paling sering menyerang paru-paru (<strong>TB paru</strong>), tetapi bisa juga menyerang kelenjar getah bening, tulang, ginjal, selaput otak, dan organ lain (<strong>TB ekstraparu</strong>).</p>
+<div class="grid">
+<div class="card"><span class="tag">TB laten</span><p>Kuman ada di tubuh tapi tertidur. Tidak ada gejala dan <strong>tidak menular</strong>. Sebagian kecil orang bisa berkembang menjadi TB aktif, terutama saat daya tahan tubuh turun.</p></div>
+<div class="card"><span class="tag">TB aktif</span><p>Kuman aktif berkembang dan menimbulkan gejala. TB paru aktif <strong>bisa menular</strong> dan perlu diobati sampai tuntas.</p></div>
+</div>
+<div class="mini" style="margin-top:14px"><svg viewBox="0 0 200 200"><use href="#paru"/></svg><div class="bubble">Indonesia termasuk negara dengan jumlah kasus TB tertinggi di dunia, jadi pengetahuan kamu sangat berarti. Hari TB Sedunia diperingati setiap <strong>24 Maret</strong>.</div></div>
+</section>
+
+<section id="tular">
+<h2>Bagaimana TB menular?</h2>
+<p>TB menular lewat udara. Saat penderita TB paru aktif batuk, bersin, berbicara, atau bernyanyi, keluar percik renik berisi kuman yang bisa terhirup orang lain, terutama di ruangan tertutup, sempit, dan minim ventilasi.</p>
+<div class="grid">
+<div class="card"><h3>✅ Bisa menular lewat</h3><ul><li>Udara berisi percik renik dari penderita TB paru aktif</li><li>Kontak lama dan dekat, misalnya serumah</li></ul></div>
+<div class="card"><h3>❌ Tidak menular lewat</h3><ul><li>Bersalaman atau berpelukan</li><li>Berbagi piring, gelas, atau sendok</li><li>Memegang gagang pintu atau pakaian</li></ul></div>
+</div>
+<h3 style="margin-top:20px">Siapa yang lebih berisiko?</h3>
+<ul>
+<li>Orang yang tinggal serumah atau sering kontak dengan penderita TB</li>
+<li>Penderita HIV, diabetes melitus, atau gangguan daya tahan tubuh lain</li>
+<li>Orang dengan gizi buruk atau kurang gizi</li>
+<li>Perokok dan orang yang terpapar asap rokok</li>
+<li>Anak kecil (terutama di bawah 5 tahun) dan lansia</li>
+<li>Pekerja layanan kesehatan dan penghuni tempat padat (lapas, asrama, permukiman padat)</li>
+</ul>
+</section>
+
+<section id="gejala">
+<h2>Kenali gejalanya</h2>
+<div class="warn"><strong>Batuk 2 minggu atau lebih?</strong> Jangan tunggu lama. Periksakan diri ke Puskesmas atau fasilitas kesehatan terdekat.</div>
+<div class="grid">
+<div class="card"><h3>Gejala utama TB paru</h3><ul><li>Batuk berdahak 2 minggu atau lebih</li><li>Dahak kadang bercampur darah</li><li>Sesak napas dan nyeri dada</li></ul></div>
+<div class="card"><h3>Gejala penyerta</h3><ul><li>Demam ringan yang hilang timbul</li><li>Keringat malam tanpa kegiatan berat</li><li>Berat badan turun tanpa sebab jelas</li><li>Nafsu makan menurun, badan lemas</li></ul></div>
+</div>
+<details><summary>Gejala pada anak</summary><p>Anak bisa menunjukkan berat badan tidak naik atau turun, nafsu makan buruk, demam berulang tanpa sebab jelas, batuk persisten, dan tampak lesu. Anak yang kontak erat dengan penderita TB perlu diperiksa meski belum bergejala.</p></details>
+<details><summary>Gejala TB ekstraparu</summary><p>Tergantung organ: benjolan di leher (kelenjar), nyeri atau bengkok tulang belakang (tulang), sakit kepala berat, demam, dan kejang atau penurunan kesadaran (selaput otak). Gejala berat seperti ini butuh pertolongan medis segera.</p></details>
+</section>
+
+<section id="diagnosis">
+<h2>Bagaimana TB didiagnosis?</h2>
+<p>Diagnosis ditegakkan oleh tenaga kesehatan. Pemeriksaan yang umum dilakukan:</p>
+<ul class="steps">
+<li><strong>Pemeriksaan klinis.</strong> Dokter menanyakan gejala dan riwayat kontak.</li>
+<li><strong>Tes Cepat Molekuler (TCM/GeneXpert).</strong> Pemeriksaan dahak utama di Indonesia. Hasilnya cepat dan sekaligus mendeteksi resistansi terhadap rifampisin.</li>
+<li><strong>Foto toraks (rontgen dada).</strong> Membantu melihat kelainan paru.</li>
+<li><strong>Mikroskopis BTA dan biakan.</strong> Pemeriksaan pendukung dan untuk pemantauan.</li>
+<li><strong>Tes infeksi laten (tes kulit atau IGRA).</strong> Untuk kontak erat, anak, dan kelompok berisiko tertentu.</li>
+</ul>
+<div class="mini"><svg viewBox="0 0 200 200"><use href="#paru"/></svg><div class="bubble">Tips pengambilan dahak: berkumur dulu, tarik napas dalam, lalu batukkan dari dalam dada. Bukan air liur ya!</div></div>
+</section>
+
+<section id="obat">
+<h2>Pengobatan: tuntas itu kunci</h2>
+<p>TB sensitif obat dapat sembuh dengan Obat Anti-TB (OAT) yang diminum teratur, umumnya <strong>minimal 6 bulan</strong>. Di fasilitas kesehatan pemerintah, obat TB diberikan <strong>gratis</strong>.</p>
+<div class="bar" role="img" aria-label="Fase intensif 2 bulan, fase lanjutan 4 bulan">
+<div style="flex:2;background:var(--lung)">Intensif · 2 bulan<br>(4 obat)</div>
+<div style="flex:4;background:var(--mint)">Lanjutan · 4 bulan<br>(2 obat)</div>
+</div>
+<div class="grid">
+<div class="card"><h3>Aturan emas berobat</h3><ul><li>Minum obat setiap hari, di jam yang sama</li><li>Jangan berhenti walau sudah merasa sehat</li><li>Ikuti pemeriksaan ulang sesuai jadwal</li><li>Libatkan <strong>PMO</strong> (Pengawas Menelan Obat) dari keluarga atau kader</li></ul></div>
+<div class="card"><h3>Efek samping umum</h3><ul><li>Urine berwarna oranye kemerahan: <strong>normal</strong></li><li>Mual atau nyeri perut ringan</li><li>Nyeri sendi, kesemutan</li></ul></div>
+</div>
+<div class="warn"><strong>Segera ke fasilitas kesehatan</strong> bila muncul kulit atau mata menguning, muntah terus-menerus, gatal atau ruam hebat, atau gangguan penglihatan. Jangan menghentikan obat sendiri tanpa konsultasi.</div>
+<details><summary>Apa itu TB resistan obat (TB RO)?</summary><p>TB RO terjadi saat kuman kebal terhadap obat lini pertama, misalnya karena obat diminum tidak teratur atau putus di tengah jalan. Pengobatannya lebih rumit, lebih lama, dan efek sampingnya lebih banyak. Karena itu, disiplin minum obat sejak awal melindungi kamu dan orang lain.</p></details>
+<details><summary>Kapan penderita masih menularkan?</summary><p>Risiko penularan turun jelas setelah pasien berobat teratur, dan dokter yang menilai kapan aman. Selama masa awal pengobatan, gunakan masker, tutup mulut saat batuk, dan buka ventilasi ruangan.</p></details>
+</section>
+
+<section id="cegah">
+<h2>Pencegahan: aksi nyata kita</h2>
+<div class="grid">
+<div class="card"><h3>😷 Etika batuk</h3><p>Tutup mulut dengan siku bagian dalam atau tisu, dan gunakan masker saat batuk.</p></div>
+<div class="card"><h3>🪟 Ventilasi baik</h3><p>Buka jendela, biarkan udara segar dan sinar matahari masuk ke rumah.</p></div>
+<div class="card"><h3>💉 Vaksin BCG</h3><p>Diberikan pada bayi untuk mencegah TB berat pada anak, seperti TB meningitis dan TB milier.</p></div>
+<div class="card"><h3>🛡️ Terapi pencegahan TB (TPT)</h3><p>Obat pencegahan untuk kontak serumah dan kelompok berisiko, sesuai anjuran tenaga kesehatan.</p></div>
+<div class="card"><h3>🥗 Gizi dan gaya hidup</h3><p>Makan bergizi, istirahat cukup, olahraga, dan berhenti merokok.</p></div>
+<div class="card"><h3>🔎 Skrining kontak</h3><p>Jika ada anggota keluarga sakit TB, seluruh kontak erat sebaiknya diperiksa.</p></div>
+</div>
+<h3 style="margin-top:20px">Dukung penderita, jauhi stigma</h3>
+<p>Penderita TB butuh dukungan, bukan dikucilkan. Mengingatkan minum obat, menemani kontrol, dan memberi semangat sangat membantu kesembuhan.</p>
+</section>
+
+<section id="mitos">
+<h2>Mitos atau fakta?</h2>
+<p>Ketuk kartu untuk melihat jawabannya.</p>
+<div id="myths"></div>
+</section>
+
+<section id="kuis">
+<h2>Kuis bersama Paru</h2>
+<div class="card" id="quiz"></div>
+</section>
+</main>
+
+<footer>
+<p><strong>Catatan:</strong> Media ini bersifat edukasi umum dan tidak menggantikan pemeriksaan atau saran dokter. Untuk diagnosis dan pengobatan, kunjungi Puskesmas, rumah sakit, atau fasilitas kesehatan terdekat. Rujukan: Kementerian Kesehatan RI dan WHO.</p>
+</footer>
+
+<script>
+const M=[
+["TB adalah penyakit keturunan.","Bukan. TB disebabkan bakteri dan menular lewat udara, bukan diwariskan."],
+["TB bisa menular lewat alat makan dan salaman.","Tidak. Penularan lewat percik renik di udara, bukan sentuhan atau alat makan."],
+["TB itu kutukan atau guna-guna.","Bukan. TB adalah penyakit medis yang bisa didiagnosis dan diobati."],
+["Kalau sudah tidak batuk, obat boleh dihentikan.","Salah. Gejala membaik sebelum kuman habis. Berhenti di tengah jalan bisa memicu kambuh dan TB resistan obat."],
+["TB tidak bisa sembuh.","TB bisa sembuh total bila berobat teratur sampai tuntas."],
+["Hanya orang miskin yang bisa kena TB.","Siapa pun bisa kena TB. Kondisi padat, gizi buruk, dan daya tahan rendah memang meningkatkan risiko."]
+];
+document.getElementById('myths').innerHTML=M.map(m=>`<button class="myth" aria-expanded="false"><b>Mitos:</b> ${m[0]}<div class="f"><b style="color:var(--ink)">Fakta:</b> ${m[1]}</div></button>`).join('');
+document.querySelectorAll('.myth').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true'));
+
+const Q=[
+["Apa penyebab TB?",["Virus","Bakteri Mycobacterium tuberculosis","Jamur","Keturunan"],1,"TB disebabkan bakteri Mycobacterium tuberculosis."],
+["Batuk berapa lama yang perlu diwaspadai sebagai gejala TB?",["2 hari","1 minggu","2 minggu atau lebih","Hanya jika berdarah"],2,"Batuk 2 minggu atau lebih perlu segera diperiksa."],
+["Cara penularan TB yang benar?",["Lewat udara dari percik renik","Bersalaman","Berbagi gelas","Gigitan nyamuk"],0,"TB menular lewat udara saat penderita TB paru aktif batuk atau bersin."],
+["Berapa lama minimal pengobatan TB sensitif obat?",["2 minggu","1 bulan","6 bulan","Sampai batuk hilang"],2,"Minimal 6 bulan, dan tidak boleh berhenti walau sudah merasa sehat."],
+["Urine berwarna oranye kemerahan saat minum OAT berarti...",["Normal akibat obat","Harus berhenti obat","Tanda gagal ginjal","Tanda sembuh"],0,"Itu efek wajar dari rifampisin. Tetap lanjutkan obat."],
+["Vaksin BCG terutama mencegah...",["Batuk pilek","TB berat pada anak","Diabetes","Demam berdarah"],1,"BCG melindungi bayi dan anak dari bentuk TB yang berat."]
+];
+let i=0,s=0,box=document.getElementById('quiz');
+function show(){
+ if(i>=Q.length){const r=s>=5?"Luar biasa! Kamu duta TB sejati! 🌟":s>=3?"Bagus! Baca lagi bagian yang meleset ya 💪":"Ayo ulangi dan baca materinya lagi, kamu pasti bisa!";
+  box.innerHTML=`<div class="mini"><svg viewBox="0 0 200 200"><use href="#paru"/></svg><div class="bubble say"><strong>Skor: ${s}/${Q.length}</strong><br>${r}</div></div><button class="btn" id="re">Main lagi</button>`;
+  document.getElementById('re').onclick=()=>{i=0;s=0;show()};return}
+ const q=Q[i];
+ box.innerHTML=`<p><span class="tag">Soal ${i+1} dari ${Q.length}</span></p><h3>${q[0]}</h3>`+q[1].map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join('')+`<p id="why" aria-live="polite"></p>`;
+ box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+  const k=+b.dataset.k;box.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+  box.querySelectorAll('.opt')[q[2]].classList.add('ok');
+  if(k===q[2])s++;else b.classList.add('no');
+  document.getElementById('why').textContent=(k===q[2]?'Benar! ':'Belum tepat. ')+q[3];
+  const n=document.createElement('button');n.className='btn';n.textContent=i+1<Q.length?'Soal berikutnya':'Lihat skor';
+  n.onclick=()=>{i++;show()};box.appendChild(n);n.focus();
+ });
+}
+show();
+</script>
+</body>
+</html>
